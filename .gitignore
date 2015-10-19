@@ -1,0 +1,11 @@
+.DS_Store
+profile
+Pods
+*.xcbkptlist
+*.xcuserstate
+*.pbxuser
+*.mode1v3
+.idea
+
+/Crashlytics.framework/Versions/A/Resources/
+/Crashlytics.framework/Versions/A/Resources/Info.plist
