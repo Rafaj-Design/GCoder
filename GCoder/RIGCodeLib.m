@@ -29,7 +29,7 @@
     return self;
 }
 
-#pragma mark Gcode generator
+#pragma mark Gcode management
 
 - (NSArray *)lines {
     return [_data copy];
@@ -53,6 +53,17 @@
     if (index < _data.count) {
         [_data removeObjectAtIndex:index];
     }
+}
+
+- (void)addCommentLine:(NSString *)comment {
+    [self addLine:[RIGcodeLibObject commentWithValue:comment]];
+}
+
+#pragma mark Gcode generator
+
+- (void)loadSVGFile:(NSString *)path {
+    [self addCommentLine:@"Generated with GCoder 0.1"];
+    [self addCommentLine:@"By Ridiculous Innovations: http://www.ridiculous-innovations.com"];
 }
 
 

@@ -8,7 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface RIAppDelegate : NSObject <NSApplicationDelegate>
+
+@property (nonatomic, weak) IBOutlet NSWindow *controlWindow;
+
 
 @end
 

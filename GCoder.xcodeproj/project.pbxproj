@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		139C3620CFE21D543F57D374 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F75B5A8BBC1A869D76910C /* libPods.a */; };
+		15A762FC1BD62806003ACA02 /* RIGcodeTableViewDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A762FB1BD62806003ACA02 /* RIGcodeTableViewDataController.m */; settings = {ASSET_TAGS = (); }; };
 		15A95F461BD4E6AF00CA9715 /* RIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A95F451BD4E6AF00CA9715 /* RIAppDelegate.m */; };
 		15A95F481BD4E6AF00CA9715 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A95F471BD4E6AF00CA9715 /* main.m */; };
 		15A95F4B1BD4E6AF00CA9715 /* RIHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A95F4A1BD4E6AF00CA9715 /* RIHomeViewController.m */; };
@@ -32,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		15A762F91BD58BF7003ACA02 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		15A762FA1BD62806003ACA02 /* RIGcodeTableViewDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIGcodeTableViewDataController.h; sourceTree = "<group>"; };
+		15A762FB1BD62806003ACA02 /* RIGcodeTableViewDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIGcodeTableViewDataController.m; sourceTree = "<group>"; };
 		15A95F3F1BD4E6AF00CA9715 /* GCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A95F431BD4E6AF00CA9715 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15A95F441BD4E6AF00CA9715 /* RIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RIAppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		15A95F761BD55D6E00CA9715 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				15A762FA1BD62806003ACA02 /* RIGcodeTableViewDataController.h */,
+				15A762FB1BD62806003ACA02 /* RIGcodeTableViewDataController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				15A95F741BD55BC500CA9715 /* RIPresetFormView.m in Sources */,
 				15A95F4B1BD4E6AF00CA9715 /* RIHomeViewController.m in Sources */,
 				15A95F481BD4E6AF00CA9715 /* main.m in Sources */,
+				15A762FC1BD62806003ACA02 /* RIGcodeTableViewDataController.m in Sources */,
 				15A95F461BD4E6AF00CA9715 /* RIAppDelegate.m in Sources */,
 				15A95F691BD4F3A200CA9715 /* RIGCodeLib.m in Sources */,
 			);
@@ -420,7 +426,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = GCoder/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GCoder/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -435,6 +442,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -463,7 +474,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = GCoder/PrefixHeader.pch;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GCoder/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -472,6 +484,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -484,6 +500,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				INFOPLIST_FILE = GCoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.$(PRODUCT_NAME:rfc1034identifier)";
@@ -500,6 +517,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				INFOPLIST_FILE = GCoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ridiculous-innovations.$(PRODUCT_NAME:rfc1034identifier)";

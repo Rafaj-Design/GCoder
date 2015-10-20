@@ -15,6 +15,7 @@
 
 
 typedef NS_ENUM(NSInteger, RIGcodeCommandsType) {
+    RIGcodeCommandsTypeCustom,
     RIGcodeCommandsTypeComment,
     RIGcodeCommandsTypeRetractHome,
     RIGcodeCommandsTypeToolSelector,

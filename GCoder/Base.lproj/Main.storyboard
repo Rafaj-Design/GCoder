@@ -645,7 +645,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="RIAppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-191.5" y="-220"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -709,7 +709,7 @@
                                     <animations/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="XuN-aC-kUd">
-                                    <rect key="frame" x="386" y="1" width="16" height="443"/>
+                                    <rect key="frame" x="387" y="1" width="15" height="443"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </scroller>

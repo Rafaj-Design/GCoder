@@ -18,5 +18,9 @@
 - (void)addLine:(RIGcodeLibObject *)line;
 - (void)removeLineAtIndex:(NSUInteger)index;
 
+- (void)addCommentLine:(NSString *)comment;
+
+- (void)loadSVGFile:(NSString *)path;
+
 
 @end
