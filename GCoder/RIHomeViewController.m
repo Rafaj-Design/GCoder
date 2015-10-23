@@ -38,12 +38,21 @@
 
     _tableViewController = [[RIGcodeTableViewDataController alloc] init];
     [_tableView setDataSource:_tableViewController];
+    [_tableView reloadData];
+    
+    [self createPresets];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
+}
+
+#pragma mark Creating elements
+
+- (void)createPresets {
+    
 }
 
 #pragma mark Actions
@@ -59,19 +68,23 @@
     openPanel.allowsMultipleSelection = NO;
     openPanel.allowedFileTypes = @[@"svg"];
     
+    __weak typeof(self) weakSelf = self;
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSModalResponseOK) {
             
             NSURL *selection = openPanel.URLs[0];
             NSString *path = [selection.path stringByResolvingSymlinksInPath];
             
-            [_tableViewController loadSVGFile:path];
+            // TODO: Add an asynchronous success block to loadSVGFile and put reload in it
+            [weakSelf.tableViewController loadSVGFile:path];
+            [weakSelf.tableView reloadData];
         }
     }];
 }
 
 - (IBAction)didClickExportGcodeButton:(NSButton *)sender {
-    
+    NSString *gcode = [_tableViewController.gcodeLib getGCode];
+    NSLog(@"GCODE: %@", gcode);
 }
 
 

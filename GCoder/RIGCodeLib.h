@@ -22,5 +22,7 @@
 
 - (void)loadSVGFile:(NSString *)path;
 
+- (NSString *)getGCode;
+
 
 @end

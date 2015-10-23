@@ -20,6 +20,8 @@
 + (instancetype)objectWithType:(RIGcodeCommandsType)type andValue:(NSString *)value;
 - (instancetype)initWithType:(RIGcodeCommandsType)type andValue:(NSString *)value;
 
+- (NSString *)getGCode;
+
 
 @end
 

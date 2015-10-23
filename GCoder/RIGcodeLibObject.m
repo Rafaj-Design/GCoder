@@ -33,6 +33,12 @@
     return self;
 }
 
+#pragma mark Generating Gcode
+
+- (NSString *)getGCode {
+    return _command;
+}
+
 
 @end
 

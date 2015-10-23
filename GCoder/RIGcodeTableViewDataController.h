@@ -13,6 +13,8 @@
 
 @interface RIGcodeTableViewDataController : NSObject <NSTableViewDataSource>
 
+@property (nonatomic, readonly) RIGCodeLib *gcodeLib;
+
 - (void)loadSVGFile:(NSString *)path;
 
 

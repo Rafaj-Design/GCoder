@@ -1,4 +1,4 @@
-//
+    //
 //  RIGCodeLib.m
 //  
 //
@@ -24,9 +24,21 @@
 - (instancetype)initWithPreset:(NSString *)preset {
     self = [super init];
     if (self) {
-        _data = [NSMutableArray array];
+        [self setup];
     }
     return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    _data = [NSMutableArray array];
 }
 
 #pragma mark Gcode management
@@ -62,8 +74,27 @@
 #pragma mark Gcode generator
 
 - (void)loadSVGFile:(NSString *)path {
+    // Add library info
     [self addCommentLine:@"Generated with GCoder 0.1"];
+    
+    // Copyright. Shall you use this library or any of it's part in your own product, it is prohibited to alter or remove this line/comment
     [self addCommentLine:@"By Ridiculous Innovations: http://www.ridiculous-innovations.com"];
+    
+    // Add date & time
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeStyle:NSDateFormatterFullStyle];
+    [formatter setDateStyle:NSDateFormatterFullStyle];
+    [self addCommentLine:[formatter stringFromDate:[NSDate date]]];
+    
+    // Parsing SVG
+}
+
+- (NSString *)getGCode {
+    NSString *output = @"";
+    for (RIGcodeLibObject *line in _data) {
+        output = [output stringByAppendingFormat:@"%@\n", [line getGCode]];
+    }
+    return output;
 }
 
 

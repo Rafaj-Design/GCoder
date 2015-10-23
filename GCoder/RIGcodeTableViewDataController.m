@@ -12,8 +12,6 @@
 
 @interface RIGcodeTableViewDataController ()
 
-@property (nonatomic, readonly) RIGCodeLib *gcodeLib;
-
 @end
 
 
